@@ -18,6 +18,10 @@
         </if>
     </select>
 
+    <select id="findByGid" resultType="com.example.demo.entity.Group">
+        SELECT * FROM  `group` WHERE gid = #{gid}
+    </select>
+
 
 <!--    &lt;!&ndash; SQL to insert a new group &ndash;&gt;-->
 <!--    <insert id="insertGroup" parameterType="com.example.demo.entity.Group">-->
@@ -52,4 +56,16 @@
     <update id="updateGroup" parameterType="com.example.demo.entity.Group">
         UPDATE `group` SET lines=#{lines} WHERE id=#{id}
     </update>
+
+    <update id="Update" parameterType="com.example.demo.entity.Group">
+        UPDATE `group`
+        <set>
+            <if test="group.lines != null">
+                `lines`= #{group.lines},
+            </if>
+        </set>
+        WHERE
+        gid=#{group.gid}
+    </update>
+
 </mapper>

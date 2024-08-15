@@ -1,11 +1,8 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Group;
-import com.example.demo.entity.User;
 import com.example.demo.service.GroupService;
-import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,7 +18,7 @@ public class GroupController {
 //        return groupService.Sel(group).toString();
 //    }
 
-    @RequestMapping(value = "/add", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
+    @RequestMapping(value = "/scc", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
     public String Add(@ModelAttribute Group group){
         return groupService.Add(group);
     }
