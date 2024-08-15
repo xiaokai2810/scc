@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GroupMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.Group">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="gid" jdbcType="VARCHAR" property="gid"/>
+    </resultMap>
+
+    <select id="Sel" resultType="com.example.demo.entity.Group">
+        select * from group where 1=1
+        <if test="group.id != null">
+            AND id = #{group.id}
+        </if>
+    </select>
+
+    <insert id="Add" parameterType="com.example.demo.entity.Group">
+        INSERT INTO group
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="group.gid != null">
+                gid,
+            </if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="group.gid != null">
+                #{group.gid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+<!--    <update id="Update" parameterType="com.example.demo.entity.User">-->
+<!--        UPDATE user-->
+<!--        <set>-->
+<!--            <if test="user.username != null">-->
+<!--                username = #{user.username},-->
+<!--            </if>-->
+<!--            <if test="user.password != null">-->
+<!--                password = #{user.password},-->
+<!--            </if>-->
+<!--            <if test="user.address != null">-->
+<!--                address = #{user.address},-->
+<!--            </if>-->
+<!--        </set>-->
+<!--        WHERE-->
+<!--        id=#{user.id}-->
+<!--    </update>-->
+
+<!--    <delete id="Delete"  parameterType="com.example.demo.entity.User">-->
+<!--        DELETE FROM user WHERE id = #{user.id}-->
+<!--    </delete>-->
+
+</mapper>

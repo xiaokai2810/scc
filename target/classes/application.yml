@@ -1,0 +1,24 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    username: root
+    password: zkc142326
+    url: jdbc:mysql://localhost:3306/dn?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.example.entity.demo
+
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
+
+custom:
+  localPath: "D:/ZYJK/git/"
+  accessToken: "glpat-LoWbr2GBEE4XPaHgXwrS"
+  gitLabUrl: "http://localhost"
