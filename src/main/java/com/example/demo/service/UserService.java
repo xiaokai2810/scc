@@ -32,7 +32,7 @@ public class UserService {
 
     @Value("${custom.gitLabUrl}")
     private String gitLabUrl;
-    static List<String> paths = new ArrayList<>();
+
     public User Sel(User user) {
         return userMapper.Sel(user);
     }

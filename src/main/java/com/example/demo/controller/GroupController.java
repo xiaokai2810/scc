@@ -15,16 +15,17 @@ public class GroupController {
     @Autowired
     private GroupService groupService;
 
-    @RequestMapping(value = "/selectUserByid", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
-    @ResponseBody
-    public String GetUser(Group group){
-        return groupService.Sel(group).toString();
-    }
+//    @RequestMapping(value = "/selectUserByid", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String GetUser(Group group){
+//        return groupService.Sel(group).toString();
+//    }
 
     @RequestMapping(value = "/add", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
-    public String Add(Group group){
+    public String Add(@ModelAttribute Group group){
         return groupService.Add(group);
     }
+
 //
 //    @RequestMapping(value = "/update", produces = "application/json;charset=UTF-8", method = RequestMethod.GET)
 //    public String Update(User user){

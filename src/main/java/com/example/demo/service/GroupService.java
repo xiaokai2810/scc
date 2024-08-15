@@ -15,13 +15,13 @@ import org.springframework.stereotype.Service;
 public class GroupService {
     @Autowired
     GroupMapper groupMapper;
-
     public Group Sel(Group group) {
         return groupMapper.Sel(group);
     }
-
     public String Add( Group  group) {
+        groupMapper.Sel(group);
         int a = groupMapper.Add(group);
+
         if (a == 1) {
             return "添加成功";
         } else {
@@ -47,14 +47,6 @@ public class GroupService {
 //        }
 //    }
 //
-//    public String addgroup(User user) {
-//        int a = userMapper.Add(user);
-//
-//        if (a == 1) {
-//            return "添加成功";
-//        } else {
-//            return "添加失败";
-//        }
-//    }
+
 
 }
